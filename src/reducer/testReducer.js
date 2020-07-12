@@ -1,14 +1,5 @@
 const initialState = {
-    title: "Purple Mart",
-    menu1: 'GROCERY',
-    menu2: 'MOMS & KIDS',
-    menu3: 'HEALTHY & BEAUTY',
-    menu4: 'STATIONERY',
-    menu5: 'PET SUPPLIES',
-    menu6: 'TOOLS & HOME IMPROVEMENT',
-    menu7: 'WASHING SUPPLIES',
-    menu8: 'TOILETRIES',
-    name: 'Duthy Duthella'
+    title: "Purple Mart"
   };
   
   export default (state = initialState, action) => {
