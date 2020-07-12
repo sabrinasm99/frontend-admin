@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Site } from "../config/site";
 import Axios from "axios";
+import { FaRegTimesCircle, FaEdit, FaTrash } from "react-icons/fa";
 
 function EditDelete() {
   const [products, setProducts] = useState([]);
@@ -84,7 +85,6 @@ function EditDelete() {
   const onSaveEdit = () => {
     let formData = new FormData();
     formData.append("name", currentEdit.name);
-    console.log(currentEdit.name, "CURRENT EDIT NAME");
     formData.append("price", currentEdit.price);
     if (currentEdit.fileObj !== undefined || currentEdit.fileObj !== null)
       formData.append("productImage", currentEdit.fileObj);
@@ -136,10 +136,10 @@ function EditDelete() {
               <h2 className="font-semibold text-lg">Edit Menu</h2>
             </div>
             <div
-              className="text-purple-800 cursor-pointer text-sm"
+              className="text-purple-800 cursor-pointer"
               style={{ marginLeft: "auto" }}
             >
-              <i onClick={onCancelEdit} className="far fa-times-circle fa-2x" />
+              <FaRegTimesCircle onClick={onCancelEdit} />
             </div>
           </div>
           <hr />
@@ -321,18 +321,16 @@ function EditDelete() {
                 Rp{val.price.toLocaleString("id-ID")}
               </div>
             </div>
-            <div className="w-1/3 hidden sm:flex p-3">
-              <div className="md:w-1/2 w-full text-green-700 cursor-pointer text-center">
-                <div
-                  onClick={() => editProductOnClick(val._id)}
-                  className="fas fa-edit"
-                ></div>
+            <div className="w-1/3 hidden sm:flex">
+              <div className="w-1/2 flex items-center justify-center text-green-700 cursor-pointer">
+                <div onClick={() => editProductOnClick(val._id)}>
+                  <FaEdit />
+                </div>
               </div>
-              <div className="md:w-1/2 w-full text-red-700 cursor-pointer text-center">
-                <div
-                  onClick={() => deleteProductOnClick(val._id)}
-                  className="fas fa-trash"
-                ></div>
+              <div className="w-1/2 flex items-center justify-center text-red-700 cursor-pointer">
+                <div onClick={() => deleteProductOnClick(val._id)}>
+                  <FaTrash />
+                </div>
               </div>
             </div>
           </div>
@@ -370,13 +368,13 @@ function EditDelete() {
                     className="mx-auto text-green-700"
                     onClick={() => editProductOnClick(val._id)}
                   >
-                    <i className="fas fa-edit"></i>
+                    <FaEdit />
                   </div>
                   <div
                     className="mx-auto text-red-700"
                     onClick={() => deleteProductOnClick(val._id)}
                   >
-                    <i className="fas fa-trash"></i>
+                    <FaTrash />
                   </div>
                 </div>
               </div>
